@@ -1,0 +1,26 @@
+F:\Systems\Tabulation System\Tabulation System\bin\Debug\Tabulation System.exe.config
+F:\Systems\Tabulation System\Tabulation System\bin\Debug\Tabulation System.exe
+F:\Systems\Tabulation System\Tabulation System\bin\Debug\Tabulation System.pdb
+F:\Systems\Tabulation System\Tabulation System\bin\Debug\EntityFramework.dll
+F:\Systems\Tabulation System\Tabulation System\bin\Debug\EntityFramework.SqlServer.dll
+F:\Systems\Tabulation System\Tabulation System\bin\Debug\MaterialSkin.dll
+F:\Systems\Tabulation System\Tabulation System\bin\Debug\EntityFramework.xml
+F:\Systems\Tabulation System\Tabulation System\bin\Debug\EntityFramework.SqlServer.xml
+F:\Systems\Tabulation System\Tabulation System\obj\Debug\Tabulation_System.Components.FlatForm.resources
+F:\Systems\Tabulation System\Tabulation System\obj\Debug\Tabulation_System.Dialogs.MessageAlert.resources
+F:\Systems\Tabulation System\Tabulation System\obj\Debug\Tabulation_System.Migrations.Initial.resources
+F:\Systems\Tabulation System\Tabulation System\obj\Debug\Tabulation_System.Migrations.DropForeignKeyFromCategoryTable.resources
+F:\Systems\Tabulation System\Tabulation System\obj\Debug\Tabulation_System.Migrations.AlterTableCriteria.resources
+F:\Systems\Tabulation System\Tabulation System\obj\Debug\Tabulation_System.Properties.Resources.resources
+F:\Systems\Tabulation System\Tabulation System\obj\Debug\Tabulation_System.Views.Admin.Categories.CategoryView.resources
+F:\Systems\Tabulation System\Tabulation System\obj\Debug\Tabulation_System.Views.Admin.SubCategories.CriteriaView.resources
+F:\Systems\Tabulation System\Tabulation System\obj\Debug\Tabulation_System.Views.Admin.TabulatorMainView.resources
+F:\Systems\Tabulation System\Tabulation System\obj\Debug\Tabulation_System.Views.Admin.AdminView.resources
+F:\Systems\Tabulation System\Tabulation System\obj\Debug\Tabulation_System.Views.Admin.Candidates.CandidateCardView.resources
+F:\Systems\Tabulation System\Tabulation System\obj\Debug\Tabulation_System.Views.Commons.LoginView.resources
+F:\Systems\Tabulation System\Tabulation System\obj\Debug\Tabulation_System.Views.Commons.MainView.resources
+F:\Systems\Tabulation System\Tabulation System\obj\Debug\Tabulation_System.Views.Customs.ActionView.resources
+F:\Systems\Tabulation System\Tabulation System\obj\Debug\Tabulation_System.Views.Admin.Events.EventView.resources
+F:\Systems\Tabulation System\Tabulation System\obj\Debug\Tabulation System.csproj.GenerateResource.Cache
+F:\Systems\Tabulation System\Tabulation System\obj\Debug\Tabulation System.exe
+F:\Systems\Tabulation System\Tabulation System\obj\Debug\Tabulation System.pdb

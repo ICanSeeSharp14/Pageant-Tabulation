@@ -1,0 +1,419 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{560D3E02-E1E2-450D-B7E9-C332A9861D8F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tabulation_System</RootNamespace>
+    <AssemblyName>Tabulation System</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialSkin.Updated.0.2.2\lib\MaterialSkin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Commons\Helpers\ControlHelper.cs" />
+    <Compile Include="Commons\Helpers\DbHelper.cs" />
+    <Compile Include="Commons\Helpers\FontHelper.cs" />
+    <Compile Include="Commons\Helpers\MessageHelper.cs" />
+    <Compile Include="Commons\Helpers\Status.cs" />
+    <Compile Include="Commons\Helpers\StatusHelper.cs" />
+    <Compile Include="Components\Classes\Helpers\ColorHelper.cs" />
+    <Compile Include="Components\Classes\Helpers\FontHelper.cs" />
+    <Compile Include="Components\Classes\Helpers\TransitionHelper.cs" />
+    <Compile Include="Components\CustomTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\FlatButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\FlatCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\FlatComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\FlatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Components\FlatForm.Designer.cs">
+      <DependentUpon>FlatForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\FlatGlowButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\FlatGradientButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\FlatNavigationPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\FlatPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\FlatPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\FlatRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\FlatTable.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\FlatTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\Gradient.cs" />
+    <Compile Include="Components\Interfaces\IColor.cs" />
+    <Compile Include="Components\Interfaces\IEllipse.cs" />
+    <Compile Include="Components\Interfaces\IFont.cs" />
+    <Compile Include="Components\Interfaces\IGradient.cs" />
+    <Compile Include="Core\Models\Account.cs" />
+    <Compile Include="Core\Models\ApplicationDbContext.cs" />
+    <Compile Include="Core\Models\Category.cs" />
+    <Compile Include="Core\Models\Criteria.cs" />
+    <Compile Include="Core\Models\Event.cs" />
+    <Compile Include="Core\Models\IAccount.cs" />
+    <Compile Include="Core\Models\Candidate.cs" />
+    <Compile Include="Core\Models\IApplicationDbContext.cs" />
+    <Compile Include="Core\Models\IEntity.cs" />
+    <Compile Include="Core\Models\Judge.cs" />
+    <Compile Include="Core\Models\Person.cs" />
+    <Compile Include="Core\Models\Result.cs" />
+    <Compile Include="Core\Models\Setting.cs" />
+    <Compile Include="Core\Models\User.cs" />
+    <Compile Include="Commons\Enums\AlertType.cs" />
+    <Compile Include="Commons\Enums\ColorCombination.cs" />
+    <Compile Include="Commons\Enums\DialogButton.cs" />
+    <Compile Include="Commons\Enums\DialogButtons.cs" />
+    <Compile Include="Commons\Enums\DialogType.cs" />
+    <Compile Include="Commons\Enums\DragState.cs" />
+    <Compile Include="Commons\Enums\Gender.cs" />
+    <Compile Include="Commons\Enums\StreamType.cs" />
+    <Compile Include="Commons\Enums\UserType.cs" />
+    <Compile Include="Core\Repositories\IEventRepository.cs" />
+    <Compile Include="Core\Repositories\ICandidateRepository.cs" />
+    <Compile Include="Core\Repositories\ICategoryRepository.cs" />
+    <Compile Include="Core\Repositories\ICriteriaRepository.cs" />
+    <Compile Include="Core\Repositories\IJudgeRepository.cs" />
+    <Compile Include="Core\Repositories\IRepository.cs" />
+    <Compile Include="Core\Repositories\IUnitOfWork.cs" />
+    <Compile Include="Core\Repositories\IUserRepository.cs" />
+    <Compile Include="Dialogs\FlatMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\FlatMessageBox.Designer.cs">
+      <DependentUpon>FlatMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\MessageAlert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\MessageAlert.Designer.cs">
+      <DependentUpon>MessageAlert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811120144398_Initial.cs" />
+    <Compile Include="Migrations\201811120144398_Initial.Designer.cs">
+      <DependentUpon>201811120144398_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811120147549_DropForeignKeyFromCategoryTable.cs" />
+    <Compile Include="Migrations\201811120147549_DropForeignKeyFromCategoryTable.Designer.cs">
+      <DependentUpon>201811120147549_DropForeignKeyFromCategoryTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811120156368_AlterTableCriteria.cs" />
+    <Compile Include="Migrations\201811120156368_AlterTableCriteria.Designer.cs">
+      <DependentUpon>201811120156368_AlterTableCriteria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Persistence\Repositories\JudgeRepository.cs" />
+    <Compile Include="Persistence\Repositories\CriteriaRepository.cs" />
+    <Compile Include="Persistence\Repositories\CategoryRepository.cs" />
+    <Compile Include="Persistence\Repositories\CandidateRepository.cs" />
+    <Compile Include="Persistence\Repositories\EventRepository.cs" />
+    <Compile Include="Persistence\Repositories\Repository.cs" />
+    <Compile Include="Persistence\Repositories\UnitOfWork.cs" />
+    <Compile Include="Persistence\Repositories\UserRepository.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Admin\Categories\CategoryView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Categories\CategoryView.Designer.cs">
+      <DependentUpon>CategoryView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\SubCategories\CriteriaView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\SubCategories\CriteriaView.Designer.cs">
+      <DependentUpon>CriteriaView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\TabulatorMainView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\TabulatorMainView.Designer.cs">
+      <DependentUpon>TabulatorMainView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\AdminView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\AdminView.Designer.cs">
+      <DependentUpon>AdminView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Candidates\CandidateCardView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Candidates\CandidateCardView.Designer.cs">
+      <DependentUpon>CandidateCardView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Commons\LoginController.Designer.cs" />
+    <Compile Include="Views\Commons\LoginView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Commons\LoginView.Designer.cs">
+      <DependentUpon>LoginView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Commons\MainView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Commons\MainView.Designer.cs">
+      <DependentUpon>MainView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Customs\ActionController.Designer.cs" />
+    <Compile Include="Views\Customs\ActionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Customs\ActionView.Designer.cs">
+      <DependentUpon>ActionView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Events\EventView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Events\EventView.Designer.cs">
+      <DependentUpon>EventView.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Components\FlatForm.resx">
+      <DependentUpon>FlatForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\MessageAlert.resx">
+      <DependentUpon>MessageAlert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811120144398_Initial.resx">
+      <DependentUpon>201811120144398_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811120147549_DropForeignKeyFromCategoryTable.resx">
+      <DependentUpon>201811120147549_DropForeignKeyFromCategoryTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811120156368_AlterTableCriteria.resx">
+      <DependentUpon>201811120156368_AlterTableCriteria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Views\Admin\Categories\CategoryView.resx">
+      <DependentUpon>CategoryView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\SubCategories\CriteriaView.resx">
+      <DependentUpon>CriteriaView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\TabulatorMainView.resx">
+      <DependentUpon>TabulatorMainView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\AdminView.resx">
+      <DependentUpon>AdminView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\Candidates\CandidateCardView.resx">
+      <DependentUpon>CandidateCardView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Commons\LoginView.resx">
+      <DependentUpon>LoginView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Commons\MainView.resx">
+      <DependentUpon>MainView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Customs\ActionView.resx">
+      <DependentUpon>ActionView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\Events\EventView.resx">
+      <DependentUpon>EventView.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Tabulation_System.Core.Models.Event.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Admin\Results\" />
+    <Folder Include="Views\Admin\Settings\" />
+    <Folder Include="Views\Admin\Users\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Users_96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Warning_48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Account_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Account_100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CancelColor_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ClearColor_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Connected_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Database_TransBG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DecreaseColor_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete_48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DeleteColor_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Disconnected_42.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EditColor_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Error_48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Exit_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hand_48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Help_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IncreaseColor_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Info_48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lock_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LockColor_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logout_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Maintenance_48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Message_48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NavigateR_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Notification_48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Question_48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RefreshLight_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reports_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SearchColor_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UnlockColor_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Update_48.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
