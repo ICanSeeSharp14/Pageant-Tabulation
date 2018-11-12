@@ -21,12 +21,15 @@ namespace Tabulation_System.Persistence.Repositories
                        .Count(u => u.Username == username && 
                                    u.Password == password) == 1;
         }
-        public async Task<User> CheckLoginUser(string username, string password)
+
+
+
+        public User CheckLoginUser(string username, string password)
         {
-            return await 
-                DatabaseContext.Users
-                .Where(u => u.Username == username &&
-                            u.Password == password).SingleOrDefaultAsync();         
+            return
+                DatabaseContext.Users.SingleOrDefault(u => u.Username == username &&
+                                                           u.Password == password);
+              
         }
 
         public bool UserNameAlreadyUsed(string userName)

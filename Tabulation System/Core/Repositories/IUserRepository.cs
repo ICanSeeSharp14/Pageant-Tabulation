@@ -8,7 +8,7 @@ namespace Tabulation_System.Core.Repositories
     {
         bool Login(string username, string password);
       
-       Task<User> CheckLoginUser(string username, string password);
+       User CheckLoginUser(string username, string password);
 
         bool UserNameAlreadyUsed(string userName);
 
