@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CriteriaView));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Judges.JudgeView));
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.txtCriteriaName = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.txtPercentage = new MaterialSkin.Controls.MaterialSingleLineTextField();
@@ -283,7 +283,6 @@
             // epCategory
             // 
             this.epCategory.ContainerControl = this;
-            this.epCategory.Icon = ((System.Drawing.Icon)(resources.GetObject("epCategory.Icon")));
             // 
             // CriteriaView
             // 

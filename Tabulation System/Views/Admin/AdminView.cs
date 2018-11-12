@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tabulation_System.Views.Admin.Judges;
 using Tabulation_System.Views.Admin.SubCategories;
 
 namespace Tabulation_System.Views.Admin
@@ -21,7 +22,7 @@ namespace Tabulation_System.Views.Admin
         private void flatButton10_Click(object sender, EventArgs e)
         {
             pnlBodyContainer.Controls.Clear();
-            var eventView = new CriteriaView();
+            var eventView = new JudgeView();
             pnlBodyContainer.Controls.Add(eventView);
 
             eventView.Dock = DockStyle.Fill;

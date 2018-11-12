@@ -24,3 +24,5 @@ F:\Systems\Tabulation System\Tabulation System\obj\Debug\Tabulation_System.Views
 F:\Systems\Tabulation System\Tabulation System\obj\Debug\Tabulation System.csproj.GenerateResource.Cache
 F:\Systems\Tabulation System\Tabulation System\obj\Debug\Tabulation System.exe
 F:\Systems\Tabulation System\Tabulation System\obj\Debug\Tabulation System.pdb
+F:\Systems\Tabulation System\Tabulation System\obj\Debug\Tabulation System.csprojResolveAssemblyReference.cache
+F:\Systems\Tabulation System\Tabulation System\obj\Debug\Tabulation_System.Views.Admin.Judges.JudgeView.resources

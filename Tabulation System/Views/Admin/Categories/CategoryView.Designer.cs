@@ -129,12 +129,12 @@ namespace Tabulation_System.Views.Admin.Categories
             this.lvCategory.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lvCategory.LabelEdit = true;
             this.lvCategory.LabelWrap = false;
-            this.lvCategory.Location = new System.Drawing.Point(6, 213);
+            this.lvCategory.Location = new System.Drawing.Point(6, 246);
             this.lvCategory.MouseLocation = new System.Drawing.Point(-1, -1);
             this.lvCategory.MouseState = MaterialSkin.MouseState.OUT;
             this.lvCategory.Name = "lvCategory";
             this.lvCategory.OwnerDraw = true;
-            this.lvCategory.Size = new System.Drawing.Size(880, 341);
+            this.lvCategory.Size = new System.Drawing.Size(880, 308);
             this.lvCategory.TabIndex = 5;
             this.lvCategory.UseCompatibleStateImageBehavior = false;
             this.lvCategory.View = System.Windows.Forms.View.Details;
@@ -162,7 +162,7 @@ namespace Tabulation_System.Views.Admin.Categories
             this.btnClear.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnClear.Depth = 0;
             this.btnClear.Icon = null;
-            this.btnClear.Location = new System.Drawing.Point(398, 148);
+            this.btnClear.Location = new System.Drawing.Point(574, 159);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClear.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClear.Name = "btnClear";
@@ -179,7 +179,7 @@ namespace Tabulation_System.Views.Admin.Categories
             this.btnSaveChanges.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnSaveChanges.Depth = 0;
             this.btnSaveChanges.Icon = null;
-            this.btnSaveChanges.Location = new System.Drawing.Point(320, 148);
+            this.btnSaveChanges.Location = new System.Drawing.Point(496, 159);
             this.btnSaveChanges.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSaveChanges.Name = "btnSaveChanges";
             this.btnSaveChanges.Primary = true;

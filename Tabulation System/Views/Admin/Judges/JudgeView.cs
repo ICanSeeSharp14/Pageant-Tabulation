@@ -6,43 +6,41 @@ using Tabulation_System.Commons.Helpers;
 using Tabulation_System.Core.Models;
 using Tabulation_System.Persistence.Repositories;
 
-namespace Tabulation_System.Views.Admin.SubCategories
+namespace Tabulation_System.Views.Admin.Judges
 {
-    public partial class CriteriaView : UserControl
+    public partial class JudgeView : UserControl
     {
        
-        public CriteriaView()
+        public JudgeView()
         {
             InitializeComponent();
-            PopulateCategories();
             
-            PopulateCriteria();
+            PopulateJudge();
 
-            cmbCategory.SelectedIndex = -1;
+         
         }
 
-        private void PopulateCriteria()
+        private void PopulateJudge()
         {
-            var totalPercentage = 0.00;
             using (var unitOfWork = new UnitOfWork(new ApplicationDbContext()))
             {
-                lvCriteria.Items.Clear();
-                var criterias = unitOfWork.Criterias.GetAll();
+                lvJudge.Items.Clear();
+                var judges = unitOfWork.Judges.GetAll();
                 
-                foreach (var criteria in criterias)
+                foreach (var judge in judges)
                 {
-                    var item = new ListViewItem(criteria.Id.ToString());
-                    item.SubItems.Add(criteria.CriteriaName);
-                  
-                    item.SubItems.Add(criteria.Percentage.ToString("##.###"));
-                    totalPercentage = totalPercentage + criteria.Percentage;
+                    var item = new ListViewItem(judge.Id.ToString());
+                    item.SubItems.Add(judge.FirstName);
+                    item.SubItems.Add(judge.LastName);
+                    item.SubItems.Add(judge.Username);
+                    
 
-                    lvCriteria.Items.Add(item);
+                    lvJudge.Items.Add(item);
 
                 }
 
-                lblRemaining.Text = (100.00 - totalPercentage).ToString("####");
-                lblTotalCriteria.Text = lvCriteria.Items.Count.ToString();
+                //lblRemaining.Text = (100.00 - totalPercentage).ToString("####");
+                //lblTotalCriteria.Text = lvJudge.Items.Count.ToString();
 
 
                 //lblTotalCriteria.Text = unitOfWork.Categories.GetTotalCategories(eventId).ToString();
@@ -50,21 +48,8 @@ namespace Tabulation_System.Views.Admin.SubCategories
 
             }
         }
-        private void PopulateCategories()
-        {
-            using (var unitOfWork = new UnitOfWork(new ApplicationDbContext()))
-            {
-                var categories = unitOfWork.Categories.GetAll();
+    
 
-                cmbCategory.DataSource = categories;
-                cmbCategory.DisplayMember = "CategoryName";
-                cmbCategory.ValueMember = "Id";
-
-
-            }
-            
-
-        }
 
         private void materialListView1_SelectedIndexChanged(object sender, System.EventArgs e)
         {
@@ -76,26 +61,21 @@ namespace Tabulation_System.Views.Admin.SubCategories
         {
             if (!ValidateRequiredFields()) return;
             if (!ValidateDuplicateRecord()) return;
-            //if (double.Parse(lblRemaining.Text) - double.Parse(txtPercentage.Text) < 0)
-            //{
-            //    MessageBox.Show("Remaining percentage must not negative");
-            //    return;
-            //}
+            
             using (var unitOfWork = new UnitOfWork(new ApplicationDbContext()))
             {
                 if (_isNew)
                 {
-                    var categoryId = int.Parse(cmbCategory.SelectedIndex.ToString());
-
-                    //var selectedEvent = unitOfWork.Categories.GetById(eventId);
-                    var newCriteria = new Criteria()
+                    var user = new User()
                     {
-                        CriteriaName = txtCriteriaName.Text.Trim(),
-                        Percentage = int.Parse(txtPercentage.Text.Trim()),
-                        CategoryId = categoryId
+                        Username = txtUsername.Text.Trim(),
+                        Password = txtPassword.Text.Trim(),
+                        FirstName = txtFirstName.Text.Trim(),
+                        LastName = txtLastName.Text.Trim(),
+                        
                     };
 
-                    unitOfWork.Criterias.Add(newCriteria);
+                    unitOfWork.Judges.Add(user);
                     unitOfWork.Commit();
                     MessageBox.Show("Successfully Saved");
 
@@ -103,13 +83,14 @@ namespace Tabulation_System.Views.Admin.SubCategories
                 }
                 else
                 {
-                    var categoryId = int.Parse(cmbCategory.SelectedIndex.ToString());
+                   
+                    var judge = unitOfWork.Judges.GetById(_id);
+                    judge.Username = txtFirstName.Text.Trim();
+                    judge.Username = txtUsername.Text.Trim();
+                    judge.Password = txtPassword.Text.Trim();
+                    judge.FirstName = txtFirstName.Text.Trim();
+                    judge.LastName = txtLastName.Text.Trim();
 
-                    var criteria = unitOfWork.Criterias.GetById(_id);
-                    criteria.CriteriaName = txtCriteriaName.Text.Trim();
-                    criteria.CategoryId = categoryId;
-                    
-                    criteria.Percentage = int.Parse(txtPercentage.Text);
 
                     unitOfWork.Commit();
                     _id = 0;
@@ -122,8 +103,7 @@ namespace Tabulation_System.Views.Admin.SubCategories
             _isNew = true;
             _id = 0;
 
-            PopulateCategories();
-            PopulateCriteria();
+            PopulateJudge();
             btnDelete.Enabled = true;
 
 
@@ -140,24 +120,25 @@ namespace Tabulation_System.Views.Admin.SubCategories
 
             using (var unitOfWork = new UnitOfWork(new ApplicationDbContext()))
             {
-                var categoryId = int.Parse(cmbCategory.SelectedIndex.ToString());
-
+  
                 if (_isNew)
                 {
 
-                    if (unitOfWork.Criterias.CriteriaAlreadyExist(txtCriteriaName.Text, _id))
+                    if (unitOfWork.Judges.JudgeAlreadyExist(txtFirstName.Text, txtLastName.Text))
                     {
-                        isValidated = SetErrorMessage(txtCriteriaName, MessageHelper.DuplicateRecord(txtCriteriaName.Text.Trim()));
-                        return isValidated;
+                        SetErrorMessage(txtFirstName, MessageHelper.DuplicateRecord(txtFirstName.Text.Trim()));
+                        SetErrorMessage(txtLastName, MessageHelper.DuplicateRecord(txtLastName.Text.Trim()));
+                        return false;
                     }
                 }
                 else
                 {
                     
-                    if (unitOfWork.Categories.CategoryAlreadyExist(txtCriteriaName.Text.Trim(), categoryId, _id))
+                    if (unitOfWork.Judges.JudgeAlreadyExist(txtFirstName.Text, txtLastName.Text, _id))
                     {
-                        isValidated = SetErrorMessage(txtCriteriaName, MessageHelper.DuplicateRecord(txtCriteriaName.Text.Trim()));
-                        return isValidated;
+                        SetErrorMessage(txtFirstName, MessageHelper.DuplicateRecord(txtFirstName.Text.Trim()));
+                        SetErrorMessage(txtLastName, MessageHelper.DuplicateRecord(txtLastName.Text.Trim()));
+                        return false;
                     }
                 }
                 
@@ -191,32 +172,30 @@ namespace Tabulation_System.Views.Admin.SubCategories
        
         private bool SetErrorMessage(Control control, string errorMessage)
         {
-            epCategory.SetError(control, errorMessage);
+            epJudge.SetError(control, errorMessage);
 
             return false;
         }
 
         private void ClearErrors()
         {
-            epCategory.Clear();
+            epJudge.Clear();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (lvCriteria.Items.Count > 0)
+            if (lvJudge.Items.Count > 0)
             {
                 if (MessageBox.Show("Do you want to Delete this category?", "Delete", MessageBoxButtons.YesNo,
                         MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     using (var unitOfWork = new UnitOfWork(new ApplicationDbContext()))
                     {
-                        var criteriaId = lvCriteria.SelectedItems[0].Text;
-                        var selectedCriteria = unitOfWork.Criterias.GetById(int.Parse(criteriaId));
-                        unitOfWork.Criterias.Remove(selectedCriteria);
+                        var judgeId = lvJudge.SelectedItems[0].Text;
+                        var selectedJudge = unitOfWork.Judges.GetById(int.Parse(judgeId));
+                        unitOfWork.Judges.Remove(selectedJudge);
                         unitOfWork.Commit();
-                        
-                        PopulateCategories();
-                        PopulateCriteria();
+                        PopulateJudge();
                         MessageBox.Show("Deleted");
                     }
                 }
@@ -237,18 +216,20 @@ namespace Tabulation_System.Views.Admin.SubCategories
 
         private void lvCategory_DoubleClick(object sender, EventArgs e)
         {
-            if (lvCriteria.Items.Count > 0)
+            if (lvJudge.Items.Count > 0)
             {
                 using (var unitOfWork = new UnitOfWork(new ApplicationDbContext()))
                 {
-                    _id = int.Parse(lvCriteria.SelectedItems[0].Text);
-                    var selectedCriteria = unitOfWork.Criterias.GetById(_id);
-                    txtCriteriaName.Text = selectedCriteria.CriteriaName;
-                    txtPercentage.Text = selectedCriteria.Percentage.ToString("##.###");
+                    _id = int.Parse(lvJudge.SelectedItems[0].Text);
+                    var judge = unitOfWork.Judges.GetById(_id);
+                    txtFirstName.Text = judge.FirstName;
+                    txtLastName.Text = judge.LastName;
+                    txtUsername.Text = judge.Username;
+                    txtPassword.Text = judge.Password;
                     btnDelete.Enabled = false;
                     _isNew = false;
 
-                    PopulateCategories();
+                   
                 }
             }
         }
@@ -258,12 +239,12 @@ namespace Tabulation_System.Views.Admin.SubCategories
 
         private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //PopulateCategories();
+            //PopulateEvent();
         }
 
         private void cmbCategory_TextChanged(object sender, EventArgs e)
         {
-            //PopulateCategories();
+            //PopulateEvent();
         }
     }
 }

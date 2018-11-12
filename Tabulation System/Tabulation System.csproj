@@ -187,6 +187,12 @@
     <Compile Include="Views\Admin\Categories\CategoryView.Designer.cs">
       <DependentUpon>CategoryView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Admin\Judges\JudgeView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Judges\JudgeView.Designer.cs">
+      <DependentUpon>JudgeView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Admin\SubCategories\CriteriaView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -264,6 +270,9 @@
     </Compile>
     <EmbeddedResource Include="Views\Admin\Categories\CategoryView.resx">
       <DependentUpon>CategoryView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\Judges\JudgeView.resx">
+      <DependentUpon>JudgeView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Admin\SubCategories\CriteriaView.resx">
       <DependentUpon>CriteriaView.cs</DependentUpon>

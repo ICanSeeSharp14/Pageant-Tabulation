@@ -11,6 +11,7 @@ using MaterialSkin;
 using MaterialSkin.Controls;
 using Tabulation_System.Views.Admin.Categories;
 using Tabulation_System.Views.Admin.Events;
+using Tabulation_System.Views.Admin.Judges;
 using Tabulation_System.Views.Admin.SubCategories;
 
 namespace Tabulation_System.Views.Admin
@@ -36,6 +37,10 @@ namespace Tabulation_System.Views.Admin
             var criteriaView = new CriteriaView();
             this.tabPage3.Controls.Add(criteriaView);
             criteriaView.Dock = DockStyle.Fill;
+
+            var judgeView = new JudgeView();
+            this.tabPage4.Controls.Add(judgeView);
+            judgeView.Dock = DockStyle.Fill;
 
 
         }
